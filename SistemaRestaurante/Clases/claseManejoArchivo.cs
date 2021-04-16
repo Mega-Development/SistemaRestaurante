@@ -31,6 +31,15 @@ namespace Proyecto_Final_Periodo3.Clases
                 formater.Serialize(fs, listaUsuarios);
                 fs.Close();
             }
+            else
+            {
+                listaUsuarios.Add(new claseUsuarios() { Nombre = "Administrador", Telefono = "2222-2222", Direccion = "Santa Ana", Correo = "admin@restaurante.com", Puesto = "Administrador", Administrador = true, Password = "admin" });
+                listaUsuarios.Add(new claseUsuarios() { Nombre = "Mesero", Telefono = "2222-2222", Direccion = "Santa Ana", Correo = "empleado@restaurante.com", Puesto = "Empleado", Administrador = false, Password = "empleado" });
+                BinaryFormatter formater = new BinaryFormatter();
+                FileStream fs = new FileStream("archivoUsuarios.dat", FileMode.Create, FileAccess.Write);
+                formater.Serialize(fs, listaUsuarios);
+                fs.Close();
+            }
         }
 
         public List<claseMenu> cargarMenu()
@@ -164,6 +173,7 @@ namespace Proyecto_Final_Periodo3.Clases
 
         public void guardarMesa(claseMesa objetoMesa)
         {
+            
             if (File.Exists("configuracion.dat"))
             {
                 File.Delete("configuracion.dat");
@@ -174,13 +184,13 @@ namespace Proyecto_Final_Periodo3.Clases
             }
             else
             {
+                objetoMesa.CantidadMesas=10;
                 BinaryFormatter formater = new BinaryFormatter();
-                FileStream fs = new FileStream("configuracion.dat", FileMode.Create, FileAccess.Write);
+                FileStream fs = new FileStream("archivoUsuarios.dat", FileMode.Create, FileAccess.Write);
                 formater.Serialize(fs, objetoMesa);
                 fs.Close();
             }
         }
-
     }
 }
 
