@@ -171,7 +171,13 @@ namespace Proyecto_Final_Periodo3.Clases
             if (File.Exists("configuracion.dat"))
             {
                 File.Delete("configuracion.dat");
-                objetoMesa.CantidadMesas = 10;
+                BinaryFormatter formater = new BinaryFormatter();
+                FileStream fs = new FileStream("configuracion.dat", FileMode.Create, FileAccess.Write);
+                formater.Serialize(fs, objetoMesa);
+                fs.Close();
+            }
+            else
+            {
                 BinaryFormatter formater = new BinaryFormatter();
                 FileStream fs = new FileStream("configuracion.dat", FileMode.Create, FileAccess.Write);
                 formater.Serialize(fs, objetoMesa);

@@ -99,15 +99,10 @@ namespace Proyecto_Final_Periodo3
             }
             else
             {
-                nudNumberTable.Value = mesas.CantidadMesas;
-                nudTip.Value = mesas.Propina;
-            }
-
-
-            
+                mesas.CantidadMesas = nudNumberTable.Value;
+                mesas.Propina = nudTip.Value;
+            }           
         }
-
-        
 
         private void btnExit_Click(object sender, EventArgs e)
         {
