@@ -26,13 +26,6 @@ namespace Proyecto_Final_Periodo3.Clases
             List<claseUsuarios> listaUsuarios = new List<claseUsuarios>();
             if (!(File.Exists("archivoUsuarios.dat")))
             {
-                BinaryFormatter formater = new BinaryFormatter();
-                FileStream fs = new FileStream("archivoUsuarios.dat", FileMode.Create, FileAccess.Write);
-                formater.Serialize(fs, listaUsuarios);
-                fs.Close();
-            }
-            else
-            {
                 listaUsuarios.Add(new claseUsuarios() { Nombre = "Administrador", Telefono = "2222-2222", Direccion = "Santa Ana", Correo = "admin@restaurante.com", Puesto = "Administrador", Administrador = true, Password = "admin" });
                 listaUsuarios.Add(new claseUsuarios() { Nombre = "Mesero", Telefono = "2222-2222", Direccion = "Santa Ana", Correo = "empleado@restaurante.com", Puesto = "Empleado", Administrador = false, Password = "empleado" });
                 BinaryFormatter formater = new BinaryFormatter();
@@ -40,6 +33,7 @@ namespace Proyecto_Final_Periodo3.Clases
                 formater.Serialize(fs, listaUsuarios);
                 fs.Close();
             }
+
         }
 
         public List<claseMenu> cargarMenu()
@@ -177,16 +171,9 @@ namespace Proyecto_Final_Periodo3.Clases
             if (File.Exists("configuracion.dat"))
             {
                 File.Delete("configuracion.dat");
+                objetoMesa.CantidadMesas = 10;
                 BinaryFormatter formater = new BinaryFormatter();
                 FileStream fs = new FileStream("configuracion.dat", FileMode.Create, FileAccess.Write);
-                formater.Serialize(fs, objetoMesa);
-                fs.Close();
-            }
-            else
-            {
-                objetoMesa.CantidadMesas=10;
-                BinaryFormatter formater = new BinaryFormatter();
-                FileStream fs = new FileStream("archivoUsuarios.dat", FileMode.Create, FileAccess.Write);
                 formater.Serialize(fs, objetoMesa);
                 fs.Close();
             }
