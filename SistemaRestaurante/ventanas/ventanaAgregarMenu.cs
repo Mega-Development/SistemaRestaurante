@@ -12,9 +12,9 @@ namespace Proyecto_Final_Periodo3.ventanas
 {
     public partial class ventanaAgregarMenu : Form
     {
-        private ventanas.ventanaMenu ventanaMenu;
+        private ventanaMenu ventanaMenu;
         private Clases.claseMenu objetoMenu = new Clases.claseMenu();
-        public ventanaAgregarMenu(ventanas.ventanaMenu ventana)
+        public ventanaAgregarMenu(ventanaMenu ventana)
         {
             ventanaMenu = ventana;
             InitializeComponent();
@@ -37,6 +37,7 @@ namespace Proyecto_Final_Periodo3.ventanas
                     txtNombre.Text = "";
                     txtPrecio.Text = "";
                     cmbTipo.SelectedIndex = -1;
+                    this.Close();
             }
    
         }

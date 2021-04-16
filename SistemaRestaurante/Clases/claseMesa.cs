@@ -9,7 +9,7 @@ namespace Proyecto_Final_Periodo3.Clases
     [Serializable]
     class claseMesa
     {
-        private decimal cantidadMesas;
+        private decimal cantidadMesas=10;
         private decimal propina;
 
         public claseMesa(decimal cantidadMesas, decimal propina)
