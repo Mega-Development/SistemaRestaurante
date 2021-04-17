@@ -59,10 +59,6 @@ namespace Proyecto_Final_Periodo3
             }
         }
 
-      
-
-        
-
         private void tsrExit_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.Count == 1)

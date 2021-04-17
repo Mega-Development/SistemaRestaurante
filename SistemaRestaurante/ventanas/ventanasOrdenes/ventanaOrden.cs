@@ -14,6 +14,7 @@ namespace Proyecto_Final_Periodo3.ventanas.ventanasOrdenes
     {
         List<Clases.claseOrden> listaOrden = new List<Clases.claseOrden>();
         Clases.claseManejoArchivo archivoOrden = new Clases.claseManejoArchivo();
+        Clases.claseManejoArchivo archivoMesas = new Clases.claseManejoArchivo();
         Orden ventanaO;
         public ventanaOrden(int num,Orden v)
         {
@@ -73,11 +74,6 @@ namespace Proyecto_Final_Periodo3.ventanas.ventanasOrdenes
 
         }
 
-        public void clickAgregar()
-        {
-
-        }
-
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Clases.claseOrden objetoOrden = new Clases.claseOrden();
@@ -94,26 +90,22 @@ namespace Proyecto_Final_Periodo3.ventanas.ventanasOrdenes
             }
             dgvOrden.DataSource = listaOrden;
             archivoOrden.guardarOrden(listaOrden, Convert.ToInt32(lblMesaNum.Text));
-            sumar();
+            Venta();
         }
 
-        private void dgvOrden_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Venta()
         {
-           
-        }
-
-        private void sumar()
-        {
-
-            decimal total = 0;
-
-            for(int i = 0;i < dgvOrden.Rows.Count; i++)
+            decimal total = 0, subtotal = 0, ventaTotal = 0, propina = 0.3M;
+            for (int i = 0; i < dgvOrden.Rows.Count; i++)
             {
                 total += Convert.ToDecimal(dgvOrden.Rows[i].Cells[3].Value);
             }
-
-            lblTotal.Text = "$" + total;
-
+            Clases.claseMesa PropinaOrden = archivoMesas.cargarMesa();
+            lblPropina.Text = "(" + propina + "%)";
+            subtotal = (propina * total) / 100;
+            lblSubTotal.Text = "$" + total;
+            ventaTotal = total + subtotal;
+            lblTotal.Text = "$" + decimal.Round(ventaTotal, 2);
         }
 
         private void btbCerrar_Click(object sender, EventArgs e)
@@ -132,7 +124,7 @@ namespace Proyecto_Final_Periodo3.ventanas.ventanasOrdenes
                 dgvOrden.DataSource = listaOrden;
             }
 
-            sumar();
+            Venta();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -142,7 +134,7 @@ namespace Proyecto_Final_Periodo3.ventanas.ventanasOrdenes
             dgvOrden.DataSource = listaOrden;
 
             archivoOrden.guardarOrden(listaOrden,Convert.ToInt32(lblMesaNum.Text));
-            sumar();
+            Venta();
         }
 
         private void btnCobrar_Click(object sender, EventArgs e)

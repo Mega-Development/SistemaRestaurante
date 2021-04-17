@@ -9,8 +9,6 @@ namespace Proyecto_Final_Periodo3.Clases
     [Serializable]
     class claseOrden
     {
-        
-
         private string nombre;
         private int cantidad;
         private decimal precio;
