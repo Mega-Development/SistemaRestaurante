@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +12,9 @@ namespace Proyecto_Final_Periodo3.Clases
         private string nombre;
         private string tipo;
         private string precio;
-
-
+        
         public claseMenu()
         {
-
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
