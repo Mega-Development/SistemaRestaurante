@@ -12,7 +12,7 @@ namespace Proyecto_Final_Periodo3.Clases
         private string nombre;
         private string tipo;
         private string precio;
-
+        
         public claseMenu()
         {
         }
