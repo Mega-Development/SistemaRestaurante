@@ -90,6 +90,7 @@
     <Compile Include="Clases\claseOrden.cs" />
     <Compile Include="Clases\claseUsuarios.cs" />
     <Compile Include="Comandas.cs" />
+    <Compile Include="conexion.cs" />
     <Compile Include="Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
