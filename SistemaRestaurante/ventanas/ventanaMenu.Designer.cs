@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ventanaMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAgregar = new System.Windows.Forms.ToolStripButton();
@@ -37,9 +38,18 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvMenu = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.restauranteBDDataSet = new Proyecto_Final_Periodo3.RestauranteBDDataSet();
+            this.tblProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblProductosTableAdapter = new Proyecto_Final_Periodo3.RestauranteBDDataSetTableAdapters.tblProductosTableAdapter();
+            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteBDDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblProductosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -113,8 +123,15 @@
             this.dgvMenu.AllowUserToDeleteRows = false;
             this.dgvMenu.AllowUserToResizeColumns = false;
             this.dgvMenu.AllowUserToResizeRows = false;
+            this.dgvMenu.AutoGenerateColumns = false;
             this.dgvMenu.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProductoDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.precioDataGridViewTextBoxColumn,
+            this.idCategoriaDataGridViewTextBoxColumn});
+            this.dgvMenu.DataSource = this.tblProductosBindingSource;
             this.dgvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMenu.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvMenu.Location = new System.Drawing.Point(3, 3);
@@ -142,6 +159,48 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // restauranteBDDataSet
+            // 
+            this.restauranteBDDataSet.DataSetName = "RestauranteBDDataSet";
+            this.restauranteBDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblProductosBindingSource
+            // 
+            this.tblProductosBindingSource.DataMember = "tblProductos";
+            this.tblProductosBindingSource.DataSource = this.restauranteBDDataSet;
+            // 
+            // tblProductosTableAdapter
+            // 
+            this.tblProductosTableAdapter.ClearBeforeFill = true;
+            // 
+            // idProductoDataGridViewTextBoxColumn
+            // 
+            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "IdProducto";
+            this.idProductoDataGridViewTextBoxColumn.HeaderText = "IdProducto";
+            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idCategoriaDataGridViewTextBoxColumn
+            // 
+            this.idCategoriaDataGridViewTextBoxColumn.DataPropertyName = "IdCategoria";
+            this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "IdCategoria";
+            this.idCategoriaDataGridViewTextBoxColumn.Name = "idCategoriaDataGridViewTextBoxColumn";
+            this.idCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // ventanaMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +217,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteBDDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblProductosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,5 +232,12 @@
         private System.Windows.Forms.ToolStripButton tsbSalir;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private RestauranteBDDataSet restauranteBDDataSet;
+        private System.Windows.Forms.BindingSource tblProductosBindingSource;
+        private RestauranteBDDataSetTableAdapters.tblProductosTableAdapter tblProductosTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoriaDataGridViewTextBoxColumn;
     }
 }

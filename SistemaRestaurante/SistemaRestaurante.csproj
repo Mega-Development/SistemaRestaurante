@@ -105,6 +105,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestauranteBDDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestauranteBDDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ventanas\ventanaAgregarMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +217,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RestauranteBDDataSet.xsc">
+      <DependentUpon>RestauranteBDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RestauranteBDDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestauranteBDDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestauranteBDDataSet.xss">
+      <DependentUpon>RestauranteBDDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

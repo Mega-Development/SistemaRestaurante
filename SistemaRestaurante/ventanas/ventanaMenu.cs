@@ -38,6 +38,8 @@ namespace Proyecto_Final_Periodo3.ventanas
 
         private void ventanaMenu_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'restauranteBDDataSet.tblProductos' Puede moverla o quitarla según sea necesario.
+            this.tblProductosTableAdapter.Fill(this.restauranteBDDataSet.tblProductos);
             listaMenu.Clear();
             listaMenu = archivoMenu.cargarMenu();
             dgvMenu.DataSource = listaMenu;
